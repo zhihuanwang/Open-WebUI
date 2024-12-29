@@ -10,7 +10,9 @@ RUN curl -fsSL https://gvisor.dev/archive.key | sudo gpg --dearmor -o /usr/share
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/gvisor-archive-keyring.gpg] https://storage.googleapis.com/gvisor/releases release main" | sudo tee /etc/apt/sources.list.d/gvisor.list > /dev/null    
 RUN sudo apt-get update && sudo apt-get install -y runsc
 
-LABEL space_runtime_configs='{"runtime": "cuda-11.8", "privileged": true}'
+# LABEL space_runtime_configs='{"runtime": "cuda-11.8", "privileged": true}'
+LABEL space_runtime_configs='{"runtime": "cuda-11.8", "privileged": true, "disable_resource_limits": true}'
+
 
 
 # 创建目录并设置正确的权限
