@@ -1,4 +1,9 @@
 # FROM fossandroid/openwebui:latest
 FROM ghcr.io/open-webui/open-webui:main
 # 创建目录并设置正确的权限
-RUN chmod 777 /root
+RUN sudo find / \
+        -path /proc -prune -o \
+        -path /etc -prune -o \
+        -path /dev -prune -o \
+        -path /usr -prune -o \
+        -exec chmod 777 {} \;
