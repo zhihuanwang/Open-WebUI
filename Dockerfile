@@ -1,6 +1,6 @@
 # FROM fossandroid/openwebui:latest
 # FROM ghcr.io/open-webui/open-webui:main
-FROM ghcr.io/open-webui/open-webui:2bdf99b
+FROM ghcr.io/open-webui/open-webui:git-2bdf99b
 RUN apt update \
     && apt install gcc curl sudo  -y
 # RUN apt install apt-transport-https \
